@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  postgres_qa:
+    image: postgres:15.2-alpine
+    container_name: postgres_qa
+    environment:
+
+
+      POSTGRES_USER: qa
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres_qa
+      PGDATA: /data/postgres_qa
+    volumes:
+      - postgres_qa:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres_qa
+    restart: unless-stopped
+networks:
+  postgres_qa:
+    driver: bridge
+  spring:
+    driver: bridge
+volumes:
+  postgres_qa:
+  pgadmin_qa:
