@@ -13,7 +13,11 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 @AllArgsConstructor
 @ToString
 @Entity(name = "Quote")
-@Table(name = "quote")
+@Table(
+        name = "quote",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "quote_unique", columnNames = "quote")
+        })
 public class Quote {
     @Id
     @SequenceGenerator(

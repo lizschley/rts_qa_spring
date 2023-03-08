@@ -8,9 +8,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jakarta.persistence.GenerationType.SEQUENCE;
-
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,23 +17,18 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 @Table(
         name = "person",
         uniqueConstraints = {
-                @UniqueConstraint(name = "unique_constraint", columnNames={"first_name", "last_name", "birth_date"})
+            @UniqueConstraint(name = "person_id_unique", columnNames = "id"),
+            @UniqueConstraint(name = "unique_data_constraint", columnNames={"first_name", "last_name", "birth_date"})
         }
 )
 public class Person {
-    @Id
-    @SequenceGenerator(
-            name = "person_sequence",
-            sequenceName = "person_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = SEQUENCE,
-            generator = "person_sequence"
-    )
+
+    @NotNull(message = "Id cannot be null")
     @Column(
-            name = "id"
+            name = "id",
+            columnDefinition = "SMALLINT"
     )
+    @Id
     private Long id;
 
     @NotNull(message = "First name cannot be null")
