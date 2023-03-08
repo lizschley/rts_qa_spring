@@ -13,17 +13,17 @@ public class RtsQaSpringApplication implements CommandLineRunner {
             .getLogger(RtsQaSpringApplication.class);
 
     public static void main(String[] args) {
-        logger.info("STARTING : Spring boot application starting");
+        logger.info("1. STARTING : Spring boot application starting");
         SpringApplication.run(RtsQaSpringApplication.class, args);
-        logger.info("STOPPED  : Spring boot application stopped");
+        logger.info("3. STOPPED  : Spring boot application end of main");
     }
 
     @Override
     public void run(String... args) throws Exception {
-        logger.info("EXECUTING : command line runner");
+        logger.info("2. EXECUTING : command line runner");
 
-        for(int i=0;i<=10;i++){
-            logger.info("Count ="+i);
+        for(int i=0;i<=5;i++){
+            logger.info("Count = "+i);
         }
     }
 }
