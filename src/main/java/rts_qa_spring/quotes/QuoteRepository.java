@@ -1,6 +1,8 @@
 package rts_qa_spring.quotes;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface QuoteRepository extends PagingAndSortingRepository<Quote, Long> {
+@Repository
+public interface QuoteRepository extends JpaRepository<Quote, Long> {
 }

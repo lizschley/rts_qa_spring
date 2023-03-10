@@ -37,7 +37,6 @@ public class Quote {
 
     @Column(
             name = "created_at",
-            nullable = false,
             columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
     )
     private LocalDateTime createdAt;

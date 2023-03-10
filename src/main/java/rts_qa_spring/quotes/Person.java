@@ -2,7 +2,6 @@ package rts_qa_spring.quotes;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -66,7 +65,6 @@ public class Person {
 
     @Column(
             name = "created_at",
-            nullable = false,
             columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
     )
     private LocalDateTime createdAt;
