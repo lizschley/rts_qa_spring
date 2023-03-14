@@ -3,7 +3,6 @@ package rts_qa_spring.quotes;
 import jakarta.persistence.*;
 import lombok.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,12 +61,6 @@ public class Person {
             columnDefinition = "TEXT"
     )
     private String personNote;
-
-    @Column(
-            name = "created_at",
-            columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
-    )
-    private LocalDateTime createdAt;
 
     @OneToMany(
             mappedBy = "person",

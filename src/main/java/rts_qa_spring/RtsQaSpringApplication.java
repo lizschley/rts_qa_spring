@@ -4,11 +4,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import rts_qa_spring.quotes.LoadCsvData;
-import rts_qa_spring.quotes.Person;
-import rts_qa_spring.quotes.PersonRepository;
-import rts_qa_spring.quotes.QuoteRepository;
+import rts_qa_spring.quotes.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @SpringBootApplication
@@ -19,12 +17,11 @@ public class RtsQaSpringApplication {
 
     @Bean
     CommandLineRunner commandLineRunner(
-            PersonRepository personRepository,
-            QuoteRepository quoteRepository) {
+            PersonRepository personRepository) {
         return args -> {
             LoadCsvData dataLoader = new LoadCsvData();
-            List<Person> personList = dataLoader.loadPerson();
-            personRepository.saveAllAndFlush(personList);
+            HashMap<String, Person> personHash = dataLoader.loadPerson();
+            List<QuotesFromCsv> quoteList = dataLoader.loadQuote();
         };
     }
 }

@@ -35,12 +35,6 @@ public class Quote {
     )
     private Long id;
 
-    @Column(
-            name = "created_at",
-            columnDefinition = "TIMESTAMP WITHOUT TIME ZONE"
-    )
-    private LocalDateTime createdAt;
-
     @NotNull(message = "Quote cannot be null")
     @Column(
             name = "quote"
